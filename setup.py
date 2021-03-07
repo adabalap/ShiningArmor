@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="ShiningArmor", 
-    version="0.0.1",
+    version="0.0.2",
     author="Phani Adabala",
     author_email="adabala.phani@gmail.com",
     description="A collection of python functions for BOTs",
