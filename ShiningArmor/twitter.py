@@ -25,7 +25,6 @@ def tokens(tokens_file):
 
 
 
-
 def auth(tokens):
     # post the tweet on twitter
     # tokens can be found under "Apps > RainBowDashBOT"
@@ -42,6 +41,7 @@ def auth(tokens):
         raise err
 
     return api
+
 
 
 
