@@ -26,7 +26,6 @@ def tokens(tokens_file):
 
 
 def auth(tokens):
-    # post the tweet on twitter
     # tokens can be found under "Apps > RainBowDashBOT"
     try:
         auth = tweepy.OAuthHandler(tokens['consumer_api_key'], \
