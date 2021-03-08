@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="ShiningArmor", 
-    version="0.0.2",
+    version="0.0.3",
     author="Phani Adabala",
     author_email="adabala.phani@gmail.com",
     description="A collection of python functions for BOTs",
@@ -22,4 +22,7 @@ setuptools.setup(
     ],
     packages=setuptools.find_packages(),
     python_requires=">=3.6",
+    install_requires=[
+        "tweepy"
+    ]
 )
