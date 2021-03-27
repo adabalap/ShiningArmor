@@ -1,3 +1,4 @@
+.gitignore
 venv/
 
 *.pyc
@@ -15,3 +16,5 @@ build/
 
 tokens.json
 *.bak
+
+.idea/
