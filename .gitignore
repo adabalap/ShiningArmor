@@ -18,3 +18,5 @@ tokens.json
 *.bak
 
 .idea/
+
+cookies/

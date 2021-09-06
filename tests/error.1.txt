@@ -1,0 +1,30 @@
+(venv) [adabalap@localhost tests]$ ./run.sh 
+
+Sun Sep  5 14:18:51 IST 2021: Checking for Xvfb stale process
+Sun Sep  5 14:18:51 IST 2021: No Xvfb stale process found
+Sun Sep  5 14:18:51 IST 2021: Checking for chromedriver stale process
+Sun Sep  5 14:18:51 IST 2021: No chromedriver stale process found
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/Source/ShiningArmor/tests/venv/lib64/python3.9/site-packages/ShiningArmor/whatsapp.py", line 33, in locate_contact
+    wa["driver"].find_element_by_xpath('//*[@title = "{}"]'.format(wa["contact"])).click()
+  File "/data/data/com.termux/files/home/Source/ShiningArmor/tests/venv/lib64/python3.9/site-packages/selenium/webdriver/remote/webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "/data/data/com.termux/files/home/Source/ShiningArmor/tests/venv/lib64/python3.9/site-packages/selenium/webdriver/remote/webdriver.py", line 976, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "/data/data/com.termux/files/home/Source/ShiningArmor/tests/venv/lib64/python3.9/site-packages/selenium/webdriver/remote/webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "/data/data/com.termux/files/home/Source/ShiningArmor/tests/venv/lib64/python3.9/site-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@title = "Phani Adabala"]"}
+  (Session info: chrome=91.0.4472.164)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/adabalap/Source/ShiningArmor/tests/./test_whatsapp.py", line 9, in <module>
+    wa = whatsapp.locate_contact(wa)
+  File "/data/data/com.termux/files/home/Source/ShiningArmor/tests/venv/lib64/python3.9/site-packages/ShiningArmor/whatsapp.py", line 36, in locate_contact
+    print(f'Exception occurred in {sys._getframe(2).f_code.co_name} | {err}')
+ValueError: call stack is not deep enough
+
