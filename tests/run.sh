@@ -26,6 +26,7 @@ clean_up_stale_process() {
 
 main() {
 	# Main function
+	clean_up_stale_process
 	python ./test_whatsapp.py
 	return $?
 }

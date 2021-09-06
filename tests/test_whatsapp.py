@@ -8,7 +8,7 @@ if __name__ == "__main__":
 
     wa = whatsapp.init()
     wa['contact'] = 'Phani Adabala'
-    wa['message'] = 'Hello from ... Sputnik BOT'
+    wa['message'] = 'Hello from ... Sputnik BOT\n- test message'
 
     wa = whatsapp.locate_contact(wa)
 
