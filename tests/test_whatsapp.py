@@ -2,7 +2,8 @@ import logging
 from ShiningArmor import whatsapp
 
 
-logging.basicConfig(encoding='utf-8', level=logging.DEBUG)
+logging.basicConfig(format='%(asctime)s:%(levelname)s:%(message)s',
+                    datefmt='%m/%d/%Y %I:%M:%S %p',level=logging.DEBUG)
 
 if __name__ == "__main__":
 
