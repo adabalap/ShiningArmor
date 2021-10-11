@@ -1,5 +1,6 @@
 import logging
 import sys
+import time
 from time import sleep
 
 from pyvirtualdisplay import Display
@@ -8,7 +9,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 
 
-def init(timer=20):
+def init(timer=20, display=False):
     wa = {}
     wa["func"] = sys._getframe().f_code.co_name
     logging.info(f'Inside {wa["func"]}')
@@ -19,8 +20,9 @@ def init(timer=20):
         wa["options"].add_argument("--no-sandbox")
         wa["options"].add_argument("user-data-dir=" + "cookies")
 
-        wa["display"] = Display(visible=0)
-        wa["display"].start()
+        if display is False:
+            wa["display"] = Display(visible=0)
+            wa["display"].start()
 
         wa["driver"] = webdriver.Chrome(options=wa["options"])
         wa["driver"].maximize_window()
@@ -56,7 +58,14 @@ def locate_message_box(wa):
     logging.info(f'Inside {wa["func"]}')
 
     try:
-        wa["msg_box"] = wa["driver"].find_element_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[1]')
+        # XPATH is dynamic, provide user option to pass value based one changed value
+        # Need to find a better way to fix this (TBD)
+        if wa['xpath'] is True:
+            xpath = wa['xpath']
+        else:
+            xpath = '//*[@id="main"]/footer/div[1]/div/div/div[2]/div[1]/div/div[2]'
+
+        wa["msg_box"] = wa["driver"].find_element_by_xpath(xpath)
     except Exception as err:
         wa["rc"] = 1
         logging.error(f'{wa["func"]}:\n{err}"]')
@@ -89,13 +98,15 @@ def send_message(wa, timer=15):
     return wa
 
 
-def close(wa):
+def close(wa, display=False):
     wa["func"] = sys._getframe().f_code.co_name
     logging.info(f'Inside {wa["func"]}')
 
     try:
         wa["driver"].quit()
-        wa["display"].stop()
+
+        if display is False:
+            wa["display"].stop()
     except Exception as err:
         wa["rc"] = 1
         logging.error(f'{wa["func"]}:\n{err}"]')
